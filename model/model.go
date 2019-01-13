@@ -1,6 +1,9 @@
 package model
 
-import "time"
+import (
+	"github.com/wesovilabs/koazee"
+	"time"
+)
 
 type Song struct {
 	Title    string
@@ -15,7 +18,7 @@ type Album struct {
 	Songs  []*Song
 }
 
-var Albums = []*Album{
+var albums = []*Album{
 	{Title: "These Days", Artist: "Bon Jovi", Year: 1995, Label: "Mercury Records", Songs: []*Song{
 		{Title: "Hey God", Duration: 6*time.Minute + 12*time.Second},
 		{Title: "Something For The Pain", Duration: 4*time.Minute + 46*time.Second},
@@ -79,3 +82,5 @@ var Albums = []*Album{
 		{Title: "Someone like You", Duration: 4*time.Minute + 45*time.Second},
 	}},
 }
+
+var stream = koazee.StreamOf(albums)
